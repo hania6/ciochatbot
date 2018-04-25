@@ -1,0 +1,10 @@
+
+applications:
+- path: .
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: spectacleDemo
+  host: spectacleDemo
+  disk_quota: 1024M
