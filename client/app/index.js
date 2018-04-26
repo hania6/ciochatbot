@@ -8,9 +8,7 @@ import App from './modules/App';
 render(
     (
         <Provider store={store}>
-            <App>
-                <h1>Hi</h1>
-            </App>
+            <App />
         </Provider>
     ), document.getElementById('app')
 );
