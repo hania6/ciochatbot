@@ -18,7 +18,7 @@ const Container = styled.div`
     border-radius: 20px;
     box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
     padding: 10px;
-    background-color: #F1F1F1;
+    background-color: rgba(61,112,178,0.1);
     display: flex;
     flex-direction: row;
     ${props => props.isOwn && css`
