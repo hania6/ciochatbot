@@ -14,35 +14,45 @@ export default (props) => (
 );
 
 const Container = styled.div`
-    width: 40%;
-    border-radius: 20px;
-    box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+    width: 60%;
     padding: 10px;
-    background-color: rgba(61,112,178,0.1);
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
+    align-self: flex-start;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 600;
     ${props => props.isOwn && css`
+      align-self: flex-end;
       justify-content: space-between;
       flex-direction: row-reverse;
     `}
 `;
 
 const ImageContainer = styled.div`
+    height: 80px;
+    width: 80px;
 `;
 
 const Image = styled.div`
-    width: 80px;
     height: 80px;
+    width: 80px;
     border-radius: 50%;
     border: 1px solid black;
+    background-color: white;
 `;
 
 const TextContainer = styled.div`
-    display: inline-block;
+    display: flex;
+    width: 100%;
     padding: 10px;
     font-size: 1.7rem;
     margin-left: 20px;
     margin-right: 0px;
+    border-radius: 20px;
+    background-color: rgba(61,112,178);
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
     ${props => props.isOwn && css`
       margin-left: 0px;
       margin-right: 20px;

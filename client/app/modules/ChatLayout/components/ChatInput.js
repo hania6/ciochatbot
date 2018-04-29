@@ -10,17 +10,19 @@ export default (props) => (
 );
 
 const Container = styled.div`
-  width: 40%;
+  box-sizing: border-box;
+  width: 97%;
   display: flex;
+  padding-right: 10px;
+  padding-left: 10px;
   flex-direction: row;
-  align-content: flex-start;
-  margin-bottom: 10px;
+  margin-top: 20px;
   position: relative;
 `;
 
 const InputField = styled.input`
   border: none;
-  background-color: rgba(61,112,178,0.1);
+  border: 1px solid black;
   width: 80%;
   height: 2.5rem;
   padding: 10px;
