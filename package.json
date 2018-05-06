@@ -20,7 +20,7 @@
     ]
   },
   "scripts": {
-    "start": "node server",
+    "start": "webpack && node server",
     "start:dev": "nodemon server",
     "build": "webpack -p --progress --profile --colors",
     "storybook": "start-storybook -p 6006",
