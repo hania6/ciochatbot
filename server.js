@@ -1,14 +1,15 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const fs = require('fs');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const path = require('path');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 8080;
 
-const config = require('./config/config');
+//const config = require('./config/config');
 
+const chatRoutes = require('./server/routes/api/Chat');
 // Configuration
 // ================================================================================================
 
@@ -23,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // API routes
-require('./server/routes')(app);
+app.use('/', chatRoutes);
 
 if (isDev) {
     // Transpilation Setup Loaded Optionally in Developement enviroment only

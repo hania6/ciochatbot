@@ -4,33 +4,26 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 // Importing Chat Components
 import ChatWindowView from './Containers/ChatWindowView';
-import ChatInput from './components/ChatInput';
-import ChatItem from './components/ChatItem';
+import ChatInput from './Components/ChatInput';
 // Importing Action Creators
-import { ADD_USER } from './chatActions';
-
+import { SendMessage, UpdateMsg } from './chatActions';
 
 class ChatLayout extends Component {
+    componentDidMount() {
+        this.props.SendMessage('', this.props.Chat.chatContext);
+    }
     render() {
         return (
             <Container>
-                <ChatWindowView>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'} isOwn/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'} isOwn/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'} isOwn/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'}/>
-                    <ChatItem text={'hi'} isOwn/>
-                </ChatWindowView>
-                <ChatInput />
+                <ChatWindowView chatLog={this.props.Chat.chatLog} />
+                <ChatInput
+                    onSendClick={() => this.props.SendMessage(this.props.Chat.currentMsg, this.props.Chat.chatContext)}
+                    onEnterClick={(e) => {
+                        return e.keyCode === 13 ?
+                            this.props.SendMessage(this.props.Chat.currentMsg, this.props.Chat.chatContext) : null;
+                    }}
+                    msg={this.props.Chat.currentMsg}
+                    onMsgUpdate={(e) => this.props.UpdateMsg(e.target.value)}/>
             </Container>
         );
     }
@@ -44,18 +37,19 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-export default ChatLayout;
+//export default ChatLayout;
 
-// function mapStateToProps(state) {
-//     return {
-//         form: state.form
-//     };
-// }
-//
-// function matchDispatchToProps(dispatch) {
-//     return bindActionCreators({
-//         handleSubmit: ADD_USER
-//     }, dispatch);
-// }
+function mapStateToProps(state) {
+    return {
+        Chat: state.Chat
+    };
+}
 
-//export default connect(mapStateToProps, matchDispatchToProps)(ChatLayout);
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+        SendMessage: SendMessage,
+        UpdateMsg: UpdateMsg
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(ChatLayout);

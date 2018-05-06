@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig, {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
 
     entry: {
         app: [
@@ -20,6 +20,6 @@ module.exports = merge(commonConfig, {
     devServer: {
         contentBase: './client/public',
         historyApiFallback: true,
-        stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
+        stats: 'verbose' // none (or false), errors-only, minimal, normal (or true) and verbose
     }
 });

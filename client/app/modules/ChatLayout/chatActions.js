@@ -1,26 +1,24 @@
 import axios from "axios";
 //TODO: Checkout createAction from react-redux
 
-// Redux-Thunk in Action (for Async Actions)
-export function ADD_USER(user) {
+export function SendMessage(msg, context) {
     return function (dispatch) {
-        dispatch({ type: "ADD_USER" });
-        axios.post('/', {
-            formData: user
+        dispatch({ type: "Send_Message" });
+        axios.post('/sendMessage', {
+            message: msg,
+            context: context
         }).then((response) => {
-            dispatch({ type: "ADD_USER_FULFILLED", payload: response });
+            dispatch({ type: "Message_Sent", payload: response.data });
         }).catch((response) => {
-            dispatch({ type: "ADD_USER_REJECTED", payload: response });
+            dispatch({ type: "Message_Sent_Err", payload: response });
         });
     };
 }
 
-// Action without Thunk
-export function CHANGE_INPUT() {
+//Action without Thunk
+export function UpdateMsg(msg) {
     return {
-        type: "CHANGE_INPUT",
-        payload: {
-            name: "payload"
-        }
+        type: "Update_Message",
+        payload: msg
     };
 }

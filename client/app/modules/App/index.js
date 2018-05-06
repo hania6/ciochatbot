@@ -2,12 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 // Loading Modules
 import ChatLayout from '../ChatLayout';
+import Chart from '../Charts';
+import DevTools from '../DevTools';
 
 export default class App extends React.Component {
     render() {
         return (
             <Container>
-                <TextContainer>Charts we keda</TextContainer>
+                <DevTools />
+                <ChartTextContainer>
+                    <Chart/>
+                </ChartTextContainer>
                 <ChatContainer>
                     <ChatLayout />
                 </ChatContainer>
@@ -34,8 +39,8 @@ const ChatContainer = styled.div`
     background: #F1F1F1;
 `;
 
-const TextContainer = styled.div`
+const ChartTextContainer = styled.div`
     height: 100vh;
     width: 100%;
     background-color: #212121;
-`
+`;
