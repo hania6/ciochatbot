@@ -6,14 +6,14 @@ export default class Chart extends Component {
     render() {
         const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
         return (
-            <PieChart width={900} height={900}>
-                <Legend layout={'horizontal'} align={'center'} verticalAlign={'bottom'}/>
+            <PieChart width={760} height={650}>
+                <Legend layout={'vertical'} align={'center'} verticalAlign={'bottom'}/>
                 <Pie
                     data={this.props.chartData}
-                    cx={550}
-                    cy={360}
+                    cx={390}
+                    cy={230}
                     labelLine={false}
-                    outerRadius={325}
+                    outerRadius={190}
                     fill="#8884d8"
                     label
                 >

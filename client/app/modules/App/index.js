@@ -9,7 +9,9 @@ export default class App extends React.Component {
     render() {
         return (
             <Container>
-                <DevTools />
+                {
+                  //<DevTools />
+                }
                 <ChartTextContainer>
                     <Chart/>
                 </ChartTextContainer>
@@ -25,7 +27,6 @@ const Container = styled.div`
     height: 100vh;
     width: 100vw;
     font-family: "IBM Plex Sans";
-    overflow-x: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;

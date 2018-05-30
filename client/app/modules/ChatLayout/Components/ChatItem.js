@@ -45,7 +45,7 @@ const TextContainer = styled.div`
     display: flex;
     width: 100%;
     padding: 20px;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     margin-left: 20px;
     margin-right: 0px;
     border-radius: 20px;

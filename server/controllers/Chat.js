@@ -20,8 +20,15 @@ exports.sendMessage = function (req, res, next) {
         } else {
             console.log(response);
             let chartData = [];
-            if (response.entities[0]) {
-                chartData = ChartsData.get(response.entities[0].entity);
+            if (response.entities.length > 0) {
+                var filteredEntities = [];
+                filteredEntities = response.entities.filter((entity) =>
+                    entity.entity !== 'cio_confirmation' &&
+                    entity.entity !== 'insights_confirmation' &&
+                    entity.entity !== 'sys-person');
+                if (filteredEntities.length > 0 && response.context.graph) {
+                    chartData = ChartsData.get(filteredEntities[0].entity);
+                }
             }
             res.json({
                 response: response.output.text,

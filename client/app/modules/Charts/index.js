@@ -10,7 +10,7 @@ class ChartContainer extends React.Component {
         return (
             <Container>
                 <Header> CIO Survey Chatbot </Header>
-                <TextContent> See How Many CIOs Share your problems and concerns. </TextContent>
+                <TextContent> See Where Do You Stand Against Your Peers. </TextContent>
                 {this.props.Chat.showChart ?
                     <ChartArea>
                         <Chart chartData={this.props.Chat.chartData}/>
@@ -43,12 +43,12 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 `;
 
 const TextContent = styled.div`
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 `;
 

@@ -43,7 +43,7 @@ export default class ChatWindowView extends Component {
 
 const Container = styled.div`
     width: 95%;
-    height: 90vh;
+    height: 87vh;
     padding: 10px;
     box-sizing: border-box;
     display: flex;

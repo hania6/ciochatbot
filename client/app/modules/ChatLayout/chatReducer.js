@@ -5,8 +5,10 @@ export default function reducer(
         chatContext: null,
         sendingMsg: false,
         error: null,
-        chartData: [],
-        showChart: false
+        chartData: [{}],
+        showChart: false,
+        inputTypeChoices: false,
+        choices: []
     },
     action
 ) {
@@ -29,10 +31,17 @@ export default function reducer(
             };
             break;
         case "Message_Sent":
-            action.payload.response.forEach(msg => {
-                newState.chatLog.push({ text: msg, isOwn: false });
-            });
-            if (action.payload.chartData.length > 0) {
+            newState.chatLog.push({ text: action.payload.response, isOwn: false });
+            if (action.payload.updateInput) {
+                if (action.payload.context && action.payload.context.choices) {
+                    newState.inputTypeChoices = action.payload.context.choices || false;
+                    newState.choices = action.payload.context.options.split(',') || [];
+                } else {
+                    newState.inputTypeChoices = false;
+                    newState.choices = [];
+                }
+            }
+            if (action.payload.chartData && action.payload.chartData.length > 0) {
                 newState.showChart = true;
                 newState.chartData = action.payload.chartData;
             }
