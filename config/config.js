@@ -1,8 +1,8 @@
 module.exports = {
   //Watson Assistant Credentials
-  WA_workspace_id: 'c3987e4d-644c-45d6-9e85-57178fb1c2e9',
-  WA_username: '216ced35-b8c3-46ab-abfc-b4f2452eb1f7',
-  WA_password: 'GlJRFcjTqSgZ',
+  WA_workspace_id: '1dfdab17-dce2-4f67-b3f8-ca461b5190e0',
+  WA_username: 'apikey',
+  WA_password: 'kUGHk2WM-qh-eiQN_IkmcpqQWkfbjN1aK_MV377u9XWl',
   //Database Credentials
   DBCreds: 'Some Credentials'
 }
